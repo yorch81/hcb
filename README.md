@@ -29,6 +29,12 @@ mvn javadoc:javadoc
 3.- Execute "java -jar HCB.jar configure" to create a configuration file
 4.- Execute "java -jar HCB.jar start configuration_file" to perform backup
 ~~~
+## Configuration ##
+####  Configuration database example #####
+![Database configuration](https://raw.githubusercontent.com/yorch81/hcb/e62d184a90e7d64ba1bcf47d289146bae382fcb4/img/configdb.PNG)
+
+#### Storage configuration #####
+![Storage configuration](https://raw.githubusercontent.com/yorch81/hcb/e62d184a90e7d64ba1bcf47d289146bae382fcb4/img/configstorage.PNG)
 
 ## How to use ##
 ~~~
