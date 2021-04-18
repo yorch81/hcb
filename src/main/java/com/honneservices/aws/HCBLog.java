@@ -29,17 +29,17 @@ public class HCBLog {
 	/**
 	 * Web service URL
 	 */
-	private static String url = "https://jkdq4wlay8.execute-api.us-east-1.amazonaws.com/mail-prod";
+	private static String url = "";
 	
 	/**
 	 * Web service key
 	 */
-	private static String key = "6UupKn8m3O3vqTOl7kegt5UEQbdheqHN7IYQQZnW";
+	private static String key = "";
 	
 	/**
 	 * Honne Support mail
 	 */
-	private static String support = "support@honneservices.com";
+	private static String support = "";
 	
 	/**
 	 * Default subject
