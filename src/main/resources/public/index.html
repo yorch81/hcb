@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es_MX">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+    <meta name="description" content="HCB">
+    <meta name="author" content="YoRcH">
+    <title>Honne Cloud Backup</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/ico" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha512-DUC8yqWf7ez3JD1jszxCWSVB0DMP78eOyBpMa5aJki1bIRARykviOuImIczkxlj1KhVSyS16w2FSQetkD4UU2w==" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="HCB.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .navbar-static-top {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      .form-control {
+        background-color: #fff;
+        background-image: none;
+        border: 1.5px solid #dc5b18 ;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        color: #111 ;
+        display: block;
+        font-size: 14px;
+        height: 34px;
+        line-height: 1.42857;
+        padding: 6px 12px;
+        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        width: 100%;
+      }
+
+      .form-control:focus {
+        border-color: #0d3066;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgb(13, 48, 102, 0.6);
+        outline: 0 none;
+      }
+
+      .btn-honne {
+        background-color:#0d3066 !important;
+        border-color: #0d3066 !important;
+        color: #ffffff !important;
+        border-width: 2px !important;
+        border-radius: 5px !important;
+      }
+
+      .btn-honne:hover {
+        background-color:#638db5 !important;
+        border-color: #638db5 !important;
+        color: #ffffff !important;
+      }
+
+      .btn-honne:focus {
+        background-color:#638db5 !important;
+        border-color: #638db5 !important;
+        color: #ffffff !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-static-top bsnavbar">
+      <div class="container">
+        <div class="navbar-header">
+          <img src="logo.png" class="img-responsive" alt="Honne" width="65%">
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="https://github.com/yorch81/hcb" target="_blank">Help<span class="sr-only">(current)</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <center>
+        <h2>Honne Cloud Backup</h2>
+      </center>
+
+      <div class="container">
+        <label for="txtDir">Enter backup directory:</label>
+        <input id="txtDir" type="text" class="form-control isrequired" placeholder="Backup directory, ex: C:/backups/" name="txtDir" cfgkey="BACKUP_DIR" cfgmsg="Backup directory is required" />
+
+        <label for="txtNotification">Enter notification message:</label>
+        <input id="txtNotification" type="text" class="form-control isrequired" placeholder="Notification message" name="txtNotification" cfgkey="NOTIFICATION" cfgmsg="Notification message is required" />
+
+        <label for="txtCfgName">Enter configuration file name:</label>
+        <input id="txtCfgName" type="text" class="form-control isrequired" placeholder="Configuration file name, ex: hcb.properties" name="txtCfgName" cfgkey="CFG_FILE" cfgmsg="Configuration file name is required" />
+
+        <div class="checkbox">
+          <label><input id="chkPurge" type="checkbox" value="" checked="checked">Purge backups after upload</label>
+        </div>
+
+        <label for="cmbType">Select backup type:</label>
+        <select id="cmbType" class="form-control">
+          <option value="1">Zip Directory</option>
+          <option value="2">MySQL Dump</option>
+          <option value="3">MySQL Pump</option>
+          <option value="4">SQL Server</option>
+          <option value="5">Percona XtraBackup</option>
+          <option value="6">Oracle Data Pump</option>
+          <option value="7">PostgreSQL PgDump</option>
+          <option value="8">MongoDb Dump</option>
+        </select>
+
+        <div id="divZip">
+          <label for="txtZipDir">Enter backup directory to zip:</label>
+          <input id="txtZipDir" type="text" class="form-control" placeholder="Backup directory to zip, ex: C:/mybackup/" name="txtZipDir" cfgkey="DIR_ZIP" />
+
+          <label for="txtZipName">Enter zip name:</label>
+          <input id="txtZipName" type="text" class="form-control" placeholder="Zip name" name="txtZipName" cfgkey="ZIP_NAME" />
+        </div>
+
+        <div id="divDB" hidden="hidden">
+          <label for="txtHostname">Enter hostname:</label>
+          <input id="txtHostname" type="text" class="form-control requireddb" placeholder="Hostname" name="txtHostname" cfgkey="DB_HOSTNAME" cfgmsg="Hostname is required" />
+
+          <label for="txtDbName">Enter database name:</label>
+          <input id="txtDbName" type="text" class="form-control requireddb" placeholder="Database name" name="txtDbName" cfgkey="DB_NAME" cfgmsg="Database name is required" />
+
+          <label for="txtUserName">Enter user name:</label>
+          <input id="txtUserName" type="text" class="form-control requireddb" placeholder="User name" name="txtUserName" cfgkey="DB_USER" cfgmsg="User name is required" />
+
+          <label for="txtDbPassword">Enter database password:</label>
+          <input id="txtDbPassword" type="password" class="form-control requireddb" placeholder="User database password" name="txtDbPassword" cfgkey="DB_PASSWORD" cfgmsg="Password is required" />
+
+          <label for="txtDbPort">Enter database port:</label>
+          <input id="txtDbPort" type="number" class="form-control requireddb" placeholder="Database port" name="txtDbPort" cfgkey="DB_PORT" cfgmsg="Database port is required" />
+        </div>
+
+        <div id="divMySQL" hidden="hidden">
+          <label for="txtPara">Enter default parallelism:</label>
+          <input id="txtPara" type="number" class="form-control" placeholder="Default parallelism" name="txtPara" cfgkey="PARALLELISM" cfgmsg="Default parallelism is required" value="4" />
+        </div>
+
+        <div id="divSQLServer" hidden="hidden">
+          <div class="checkbox">
+            <label><input id="chkSQLDiff" type="checkbox" value="">Is differential?</label>
+          </div>
+
+          <div class="checkbox">
+            <label><input id="chkSQLComp" type="checkbox" value="" checked="checked">With compression</label>
+          </div>
+        </div>
+
+        <div id="divOracle" hidden="hidden">
+          <label for="txtOraSID">Enter Oracle SID:</label>
+          <input id="txtOraSID" type="text" class="form-control" placeholder="Oracle SID" name="txtOraSID" cfgkey="ORACLE_SID" />
+
+          <div class="checkbox">
+            <label><input id="chkOraComp" type="checkbox" value="" checked="checked">With compression</label>
+          </div>
+
+          <label for="txtOraDump">Enter Oracle dump directory:</label>
+          <input id="txtOraDump" type="text" class="form-control" placeholder="Oracle dump directory, ex: DUMPDIR" name="txtOraDump" cfgkey="ORACLE_DUMPDIR" />
+        </div>
+
+        <label for="cmbStorage">Select cloud storage:</label>
+        <select id="cmbStorage" class="form-control">
+          <option value="1">Amazon S3</option>
+          <option value="2">Azure Blob</option>
+          <option value="3">Google Cloud Storage</option>
+        </select>
+
+        <div id="divAwsS3">
+          <label for="txtS3Key">Enter AWS S3 key:</label>
+          <input id="txtS3Key" type="text" class="form-control" placeholder="AWS S3 key" name="txtS3Key" cfgkey="AWS_KEY" />
+
+          <label for="txtS3Secret">Enter AWS S3 secret:</label>
+          <input id="txtS3Secret" type="text" class="form-control" placeholder="AWS S3 secret" cfgkey="AWS_SECRET" name="txtS3Secret" />
+
+          <label for="txtS3Bucket">Enter AWS S3 bucket:</label>
+          <input id="txtS3Bucket" type="text" class="form-control" placeholder="AWS S3 bucket" cfgkey="S3_BUCKET" name="txtS3Bucket" />
+
+          <label for="txtS3Path">Enter AWS S3 bucket path:</label>
+          <input id="txtS3Path" type="text" class="form-control" placeholder="AWS S3 bucket path, ex: mysql/backups/" cfgkey="S3_PATH" name="txtS3Path" />
+        </div>
+
+        <div id="divAzure" hidden="hidden">
+          <label for="txtAzUrl">Enter Azure Blob URL:</label>
+          <input id="txtAzUrl" type="text" class="form-control" placeholder="Azure Blob URL" cfgkey="AZBLOB_URL" name="txtAzUrl" />
+
+          <label for="txtAzCnt">Enter Azure Blob container:</label>
+          <input id="txtAzCnt" type="text" class="form-control" placeholder="Azure Blob container" cfgkey="AZBLOB_CONTAINER" name="txtAzCnt" />
+
+          <label for="txtAzPath">Enter Azure Blob container path:</label>
+          <input id="txtAzPath" type="text" class="form-control" placeholder="Azure Blob container path, ex: mysql/backups/" cfgkey="AZBLOB_PATH" name="txtAzPath" />
+        </div>
+
+        <div id="divGCS" hidden="hidden">
+          <label for="txtGCSAuth">Enter Google credentials file:</label>
+          <input id="txtGCSAuth" type="text" class="form-control" placeholder="Google credentials file ex: C:/credentials/gcp.json" cfgkey="GCS_AUTHFILE" name="txtGCSAuth" />
+
+          <label for="txtGCSProject">Enter Google project:</label>
+          <input id="txtGCSProject" type="text" class="form-control" placeholder="Google project" cfgkey="GCS_PROJECT" name="txtGCSProject" />
+
+          <label for="txtGCSBucket">Enter Google Cloud Storage bucket:</label>
+          <input id="txtGCSBucket" type="text" class="form-control" placeholder="Google Cloud Storage bucket" cfgkey="GCS_BUCKET" name="txtGCSBucket" />
+
+          <label for="txtGCSPath">Enter Google Cloud Storage bucket path:</label>
+          <input id="txtGCSPath" type="text" class="form-control" placeholder="Google Cloud Storage bucket path, ex: mysql/backups/" cfgkey="GCS_PATH" name="txtGCSPath" />
+        </div>
+
+        <br/>
+        <center>
+          <button id="btnSave" class="btn btn-lg btn-honne">Save configuration file</button>
+        </center>
+        <br/>
+      </div>
+    </div>
+
+    <!-- Static Modal Alert -->
+    <div class="modal fade" id="window-alert" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Honne Cloud Backup</h4>
+           </div>
+
+          <div class="modal-body">
+            <p><h5 id="lblMsg"></h5></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript"> 
+      $(document).ready( function() {
+        $("#cmbStorage").change(function() {
+          HCB.showStorage();
+        });
+
+        $("#cmbType").change(function() {
+          HCB.showBackupType();
+        });
+
+        $("#btnSave").click(function() {
+          if (HCB.validate()) {
+            if (HCB.validateDB()) {
+              if (HCB.validateStorage()) {
+                HCB.save();
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
