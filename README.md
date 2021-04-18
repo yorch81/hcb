@@ -23,10 +23,12 @@ mvn javadoc:javadoc
 ~~~
 
 ## Installation ##
+~~~
 1.- Install java 8
 2.- Build and copy the package
 3.- Execute "java -jar HCB.jar configure" to create a configuration file
 4.- Execute "java -jar HCB.jar start configuration_file" to perform backup
+~~~
 
 ## How to use ##
 ~~~
