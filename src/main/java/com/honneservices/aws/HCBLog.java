@@ -25,27 +25,7 @@ import java.util.Date;
  * @version    1.0.0, 2021-01-29
  * @author     <a href="mailto:jorge.ponce@honneservices.com">Jorge Alberto Ponce Turrubiates</a>
  */
-public class HCBLog {
-	/**
-	 * Web service URL
-	 */
-	private static String url = "";
-	
-	/**
-	 * Web service key
-	 */
-	private static String key = "";
-	
-	/**
-	 * Honne Support mail
-	 */
-	private static String support = "";
-	
-	/**
-	 * Default subject
-	 */
-	private static String subject = "HCB error alert";
-	
+public class HCBLog {	
 	/**
 	 * Print error message
 	 * 
@@ -65,15 +45,10 @@ public class HCBLog {
 		b.append(" - ");
 		b.append(errorMessage);
 	
-		System.out.println(b.toString());
-		
-		// Send mail to support
 		if (errorType.equals("ERROR")) {
-			HonneMail mail = new HonneMail(HCBLog.url, HCBLog.key);
-			
-			String body = Util.getNotification() + ": " + errorMessage;
-			
-			mail.send(HCBLog.support, "", HCBLog.subject, body);
+			System.out.println("----------------------------------- Check this error -----------------------------------");
 		}
+		
+		System.out.println(b.toString());
 	}
 }
