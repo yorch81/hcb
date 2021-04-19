@@ -33,8 +33,11 @@ mvn javadoc:javadoc
 ####  Configuration database example #####
 ![Database configuration](https://raw.githubusercontent.com/yorch81/hcb/e62d184a90e7d64ba1bcf47d289146bae382fcb4/img/configdb.PNG)
 
-#### Storage configuration #####
+#### AWS S3 configuration #####
 ![Storage configuration](https://raw.githubusercontent.com/yorch81/hcb/e62d184a90e7d64ba1bcf47d289146bae382fcb4/img/configstorage.PNG)
+
+#### Create access and secret key ####
+https://docs.aws.amazon.com/es_es/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey
 
 ## How to use ##
 ~~~
