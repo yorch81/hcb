@@ -1,14 +1,13 @@
-
 # Honne Cloud Backup #
 
 ## Description ##
 Performs backups from Directories, SQL Server, MySQL, Oracle, PostgreSQL and MongoDb and upload to AWS S3, Azure Blob or Google Cloud Storage
 
 ## Requirements ##
-* [Java 8](https://www.java.com/es/download/help/java8.html)
-* [AWS S3](https://aws.amazon.com/es/s3/)
-* [Azure Blob](https://azure.microsoft.com/es-es/services/storage/blobs/)
-* [Google Cloud Storage](https://cloud.google.com/storage?hl=es-419)
+* [Java 8](https://www.java.com/download/help/java8.html)
+* [AWS S3](https://aws.amazon.com/s3/)
+* [Azure Blob](https://azure.microsoft.com/en-us/services/storage/blobs/)
+* [Google Cloud Storage](https://cloud.google.com/storage)
 
 ## Build ##
 Execute
@@ -27,8 +26,18 @@ mvn javadoc:javadoc
 1.- Install java 8
 2.- Build and copy the package
 3.- Execute "java -jar HCB.jar configure" to create a configuration file
-4.- Execute "java -jar HCB.jar start configuration_file" to perform backup
+4.- Execute "java -jar HCB.jar start configuration_file.properties" to perform backup
 ~~~
+
+## How to use ##
+~~~
+java -jar HCB.jar
+java -jar HCB.jar start
+java -jar HCB.jar start hcb_mysql_s3.properties
+java -jar HCB.jar configure
+java -jar HCB.jar configure 8888
+~~~
+
 ## Configuration ##
 ####  Configuration database example #####
 ![Database configuration](https://raw.githubusercontent.com/yorch81/hcb/e62d184a90e7d64ba1bcf47d289146bae382fcb4/img/configdb.PNG)
@@ -37,7 +46,7 @@ mvn javadoc:javadoc
 ![aws s3 configuration](https://raw.githubusercontent.com/yorch81/hcb/master/img/s3config.PNG)
 
 #### Create access and secret key ####
-https://docs.aws.amazon.com/es_es/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey
 
 #### Azure Blob configuration #####
 ![azure blob configuration](https://raw.githubusercontent.com/yorch81/hcb/master/img/azconfig.PNG)
@@ -48,16 +57,30 @@ https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manag
 #### Google Cloud Storage configuration #####
 ![gcs configuration](https://raw.githubusercontent.com/yorch81/hcb/master/img/gcpconfig.PNG)
 
-#### Get Google Cloud Storage credentials ####
+#### Create Google Cloud Storage credentials ####
 https://cloud.google.com/docs/authentication/getting-started
 
-## How to use ##
+## Write batch script ##
 ~~~
-java -jar HCB.jar
-java -jar HCB.jar start
-java -jar HCB.jar start hcb_mysql_s3.properties
-java -jar HCB.jar configure
-java -jar HCB.jar configure 8888
+SET fecha=%DATE%
+SET fecha=%fecha:/=-%
+
+SET logFile=C:\Apps\hcb\hcb_%fecha%.log
+SET jarFile=C:\Apps\hcb\HCB.jar
+SET cnfFile=C:\Apps\hcb\sqlserver.properties
+
+java -Xms256M -Xmx1G -jar %jarFile% start %cnfFile% >> %logFile%
+~~~
+
+## Write bash script ##
+~~~
+#!/bin/bash
+
+logFile=/home/centos/hcb/hcb_$(date +%d-%m-%Y).log
+jarFile=/home/centos/hcb/HCB.jar
+cnfFile=/home/centos/hcb/mysql.properties
+
+java -Xms256M -Xmx1G -jar ${jarFile} start ${cnfFile} >> ${logFile}
 ~~~
 
 ## Backup types ##
