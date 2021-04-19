@@ -34,10 +34,22 @@ mvn javadoc:javadoc
 ![Database configuration](https://raw.githubusercontent.com/yorch81/hcb/e62d184a90e7d64ba1bcf47d289146bae382fcb4/img/configdb.PNG)
 
 #### AWS S3 configuration #####
-![Storage configuration](https://raw.githubusercontent.com/yorch81/hcb/e62d184a90e7d64ba1bcf47d289146bae382fcb4/img/configstorage.PNG)
+![aws s3 configuration](https://raw.githubusercontent.com/yorch81/hcb/master/img/s3config.PNG)
 
 #### Create access and secret key ####
 https://docs.aws.amazon.com/es_es/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey
+
+#### Azure Blob configuration #####
+![azure blob configuration](https://raw.githubusercontent.com/yorch81/hcb/master/img/azconfig.PNG)
+
+#### Get Azure Blob keys ####
+https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal
+
+#### Google Cloud Storage configuration #####
+![gcs configuration](https://raw.githubusercontent.com/yorch81/hcb/master/img/gcpconfig.PNG)
+
+#### Get Google Cloud Storage credentials ####
+https://cloud.google.com/docs/authentication/getting-started
 
 ## How to use ##
 ~~~
