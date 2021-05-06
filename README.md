@@ -62,10 +62,10 @@ https://cloud.google.com/docs/authentication/getting-started
 
 ## Write batch script ##
 ~~~
-SET fecha=%DATE%
-SET fecha=%fecha:/=-%
+SET mydate=%DATE%
+SET mydate=%mydate:/=-%
 
-SET logFile=C:\Apps\hcb\hcb_%fecha%.log
+SET logFile=C:\Apps\hcb\hcb_%mydate%.log
 SET jarFile=C:\Apps\hcb\HCB.jar
 SET cnfFile=C:\Apps\hcb\sqlserver.properties
 
@@ -89,36 +89,42 @@ For check mysqldump, execute.
 ~~~
 mysqldump --help
 ~~~
+https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html
 
 ### MySQL Pump ###
 For check mysqlpump, execute.
 ~~~
 mysqlpump --help
 ~~~
+https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html
 
 ### Percona XtraBackup ###
 For check innobackupex, execute.
 ~~~
 innobackupex --help
 ~~~
+https://www.percona.com/doc/percona-xtrabackup/2.4/index.html
 
 ### Oracle Data Pump ###
 For check expdp, execute.
 ~~~
 expdp help=y
 ~~~
+https://oracle-base.com/articles/10g/oracle-data-pump-10g
 
 ### PostgreSQL PgDump ###
 For check pg_dump, execute.
 ~~~
 pg_dump --help
 ~~~
+https://www.postgresql.org/docs/10/app-pgdump.html
 
 ### MongoDump ###
 For check mongodump, execute.
 ~~~
 mongodump --help
 ~~~
+https://docs.mongodb.com/v3.6/reference/program/mongodump/
 
 ## Notes ##
 The default properties file is hcb.properties and the default port is 10080.
