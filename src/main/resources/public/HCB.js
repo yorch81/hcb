@@ -327,5 +327,11 @@ HCB.showBackupType = function() {
 	    	$("#divDB").prop("hidden", false);
 			$("#txtDbPort").val("27017");
 			break;
+
+		case "9":
+	    	$("#divDB").prop("hidden", false);
+	    	$("#txtDbPort").val("3306");
+	    	$("#txtHostname").val("localhost");
+	    	break;
   	}
 }

@@ -90,6 +90,11 @@ public class HCBackup {
 				this.backup = new MongoDump(config);
 				this.backupName = "mg_" + config.getProperty("DB_NAME") + "_" + Util.getDateTime() + ".zip";
 				break;
+			// XtraBackup 8.0
+			case 9:
+				this.backup = new XtraBackup80(config);
+				this.backupName = "mysql_xb_" + Util.getDateTime() + ".zip";
+				break;
 			default:
 				HCBLog.print("ERROR", "Backup type is not defined");
 		}
