@@ -57,11 +57,10 @@ public class XtraBackup80 extends Backup {
 		String pwd = this._config.getProperty("DB_PASSWORD");
 		String port = this._config.getProperty("DB_PORT");
 		
-		/*
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String url = "jdbc:mysql://" + dbHost + ":" + port + "/" + dbName;
+			String url = "jdbc:mysql://" + dbHost + ":" + port + "/" + dbName + "?useSSL=false";
 			
 			Connection conn = (Connection) DriverManager.getConnection(url, user, pwd);
 			
@@ -74,7 +73,6 @@ public class XtraBackup80 extends Backup {
 			HCBLog.print("ERROR", e.getMessage());
 			this.connected = false;
 		}
-		*/
 		
 		this.connected = true;
 	}
