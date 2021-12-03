@@ -72,11 +72,12 @@ public class HCBAWSS3 extends HCBUpload {
 		BasicAWSCredentials awsCreds = new BasicAWSCredentials(awsKey, awsSecret);
 		
 		try {
+			// .withForceGlobalBucketAccessEnabled(true)
 			AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
 	                .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
-	                .withForceGlobalBucketAccessEnabled(true)
+	                .withRegion(this._config.getProperty("AWS_REGION"))
 	                .build();
-			
+	                
 			File f = new File(filePath);
 			TransferManager xfer_mgr = TransferManagerBuilder.standard().withS3Client(s3Client).build();
 			

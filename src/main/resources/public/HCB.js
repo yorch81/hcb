@@ -162,6 +162,7 @@ HCB.validateDB = function() {
 HCB.validateStorage = function() {
 	delete HCB.config["AWS_KEY"];
 	delete HCB.config["AWS_SECRET"];
+	delete HCB.config["AWS_REGION"];
 	delete HCB.config["S3_BUCKET"];
 	delete HCB.config["S3_PATH"];
 
@@ -197,6 +198,7 @@ HCB.validateStorage = function() {
 
 		HCB.config["AWS_KEY"] = $("#txtS3Key").val();
 		HCB.config["AWS_SECRET"] = $("#txtS3Secret").val();
+		HCB.config["AWS_REGION"] = $("#cmbRegion").val();
 		HCB.config["S3_BUCKET"] = $("#txtS3Bucket").val();
 		HCB.config["S3_PATH"] = $("#txtS3Path").val();
 	}

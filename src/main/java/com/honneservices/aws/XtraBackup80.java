@@ -73,8 +73,6 @@ public class XtraBackup80 extends Backup {
 			HCBLog.print("ERROR", e.getMessage());
 			this.connected = false;
 		}
-		
-		this.connected = true;
 	}
 	
 	/**

@@ -116,7 +116,7 @@
           <option value="2">MySQL Dump</option>
           <option value="3">MySQL Pump</option>
           <option value="4">SQL Server</option>
-          <option value="5">Percona XtraBackup (innobackupex)</option>
+          <option value="5">Percona XtraBackup 2.4(innobackupex)</option>
           <option value="6">Oracle Data Pump</option>
           <option value="7">PostgreSQL PgDump</option>
           <option value="8">MongoDb Dump</option>
@@ -188,6 +188,31 @@
 
           <label for="txtS3Secret">Enter AWS S3 secret:</label>
           <input id="txtS3Secret" type="text" class="form-control" placeholder="AWS S3 secret" cfgkey="AWS_SECRET" name="txtS3Secret" />
+
+          <label for="cmbRegion">Enter AWS Region:</label>
+          <select id="cmbRegion" class="form-control">
+            <option value="us-east-1" selected>us-east-1 (N. Virginia)</option>
+            <option value="us-east-2">us-east-2 (Ohio)</option>
+            <option value="us-west-1">us-west-1 (N. California)</option>
+            <option value="us-west-2">us-west-2 (Oregon)</option>
+            <option value="af-south-1">af-south-1 (Cape Town)</option>
+            <option value="ap-east-1">ap-east-1 (Hong Kong)</option>
+            <option value="ap-south-1">ap-south-1 (Mumbai)</option>
+            <option value="ap-northeast-1">ap-northeast-1 (Tokyo)</option>
+            <option value="ap-northeast-2">ap-northeast-2 (Seoul)</option>
+            <option value="ap-northeast-3">ap-northeast-3 (Osaka)</option>
+            <option value="ap-southeast-1">ap-southeast-1 (Singapore)</option>
+            <option value="ap-southeast-2">ap-southeast-2 (Sydney)</option>
+            <option value="ca-central-1">ca-central-1 (Canada)</option>
+            <option value="eu-central-1">eu-central-1 (Frankfurt)</option>
+            <option value="eu-west-1">eu-west-1 (Ireland)</option>
+            <option value="eu-west-2">eu-west-2 (London)</option>
+            <option value="eu-west-3">eu-west-3 (Paris)</option>
+            <option value="eu-south-1">eu-south-1 (Milan)</option>
+            <option value="eu-north-1">eu-north-1 (Stockholm)</option>
+            <option value="me-south-1">me-south-1 (Bahrain)</option>
+            <option value="sa-east-1">sa-east-1 (São Paulo)</option>
+          </select>
 
           <label for="txtS3Bucket">Enter AWS S3 bucket:</label>
           <input id="txtS3Bucket" type="text" class="form-control" placeholder="AWS S3 bucket" cfgkey="S3_BUCKET" name="txtS3Bucket" />

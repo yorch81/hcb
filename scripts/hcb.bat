@@ -1,7 +1,7 @@
-SET fecha=%DATE%
-SET fecha=%fecha:/=-%
+SET mydate=%DATE%
+SET mydate=%mydate:/=-%
 
-SET logFile=C:\Apps\hcb\hcb_%fecha%.log
+SET logFile=C:\Apps\hcb\hcb_%mydate%.log
 SET jarFile=C:\Apps\hcb\HCB.jar
 SET cnfFile=C:\Apps\hcb\sqlserver.properties
 

@@ -98,7 +98,7 @@ mysqlpump --help
 ~~~
 https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html
 
-### Percona XtraBackup ###
+### Percona XtraBackup 2.4 ###
 For check innobackupex, execute.
 ~~~
 innobackupex --help
@@ -126,10 +126,17 @@ mongodump --help
 ~~~
 https://docs.mongodb.com/v3.6/reference/program/mongodump/
 
+### Percona XtraBackup 8-0 ###
+For check xtrabackup, execute.
+~~~
+xtrabackup --help
+~~~
+https://www.percona.com/doc/percona-xtrabackup/8.0/index.html
+
 ## Notes ##
 The default properties file is hcb.properties and the default port is 10080.
 
-For MySQL backups must be accesible mysqldump, mysqlpump or innobackupex tools.
+For MySQL backups must be accesible mysqldump, mysqlpump, innobackupex or xtrabackup tools.
 
 For Oracle backups must be accesible expdp (Oracle Data Pump).
 

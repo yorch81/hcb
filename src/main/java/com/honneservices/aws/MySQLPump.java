@@ -60,7 +60,7 @@ public class MySQLPump extends Backup {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String url = "jdbc:mysql://" + dbHost + ":" + port + "/" + dbName;
+			String url = "jdbc:mysql://" + dbHost + ":" + port + "/" + dbName + "?useSSL=false";
 			
 			Connection conn = (Connection) DriverManager.getConnection(url, user, pwd);
 			
