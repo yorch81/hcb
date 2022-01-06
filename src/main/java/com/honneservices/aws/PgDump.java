@@ -59,11 +59,16 @@ public class PgDump extends Backup {
     	props.setProperty("password", pwd);
     	
     	try {
+    		Class.forName("org.postgresql.Driver");
+
 			Connection conn = DriverManager.getConnection(url, props);
 			
 			this.connected = true;
 			
 			conn.close();
+		} catch (ClassNotFoundException e) {
+			HCBLog.print("ERROR", e.getMessage());
+			this.connected = false;
 		} catch (SQLException e) {
 			HCBLog.print("ERROR", e.getMessage());
 			this.connected = false;
